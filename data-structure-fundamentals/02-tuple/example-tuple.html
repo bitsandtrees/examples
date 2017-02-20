@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #canvas {
+      background-color:black;
+    }
+  </style>
+  <title>Tuple Example</title>
+</head>
+<body>
+  <canvas id="canvas" width="350" height="300"></canvas>
+
+  <script type="text/javascript">
+    const canvasEl = document.getElementById('canvas');
+    const context = canvasEl.getContext('2d');
+
+    // Setup
+    context.moveTo(0, 0);
+    context.beginPath();
+    context.strokeStyle = 'white';
+    context.lineWidth = 5;
+
+    const coords = [
+      [25, 25],
+      [130, 50],
+      [145, 75],
+      [200, 150],
+      [250, 200],
+      [300, 250],
+    ];
+
+    function plotLine(ctx, coords = []) {
+      coords.forEach(function([x, y]) {
+        ctx.lineTo(x, y);
+      })
+      ctx.stroke();
+    }
+
+    // Draw!
+    plotLine(context, coords);
+  </script>
+</body>
+</html>
